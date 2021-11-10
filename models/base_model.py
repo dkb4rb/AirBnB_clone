@@ -26,10 +26,12 @@ class BaseModel:
                     self.__dict__[v] = datetime.strptime(f, date)
                 else:
                     self.__dict__[v] = f
-
+        else:
+            models.storage.new()
     def save(self):
         """ Update the current datetime"""
         self.updated_at = datetime.today()
+        models.storage.save()
 
     def to_dict(self):
         """ Return the dictionary of the BaseModel"""
