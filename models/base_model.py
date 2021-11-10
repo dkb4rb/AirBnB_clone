@@ -28,6 +28,7 @@ class BaseModel:
                     self.__dict__[v] = f
         else:
             models.storage.new()
+            
     def save(self):
         """ Update the current datetime"""
         self.updated_at = datetime.today()
