@@ -1,3 +1,3 @@
 <h1>AirBnB_clone</h1>
 <br><br>
-<img src="https://holbertonintranet.s3.amazonaws.com/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU5BHMTQX4%2F20211110%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20211110T074750Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=c90d68736bb8bdc3ebf5df3413a190986fcf5a7142a9f27a5cfbc6c87aabe212"></img>
+<img src="https://github.com/KevinAndresG/AirBnB_clone/assets/Holberton.png"></img>
