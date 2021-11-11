@@ -24,14 +24,16 @@ class FileStorage():
 
     def save(self):
         """ serialize the objects to json file """
-        dict = {i: FileStorage.__objects[i].to_dict() for i in FileStorage.__objects}
+        dict = {i: FileStorage.__objects[i].to_dict()
+                for i in FileStorage.__objects}
         with open(FileStorage.__file_path, "w") as f:
             json.dump(dict, f)
 
     def reload(self):
         try:
-            with open(FileStorage.__file_path) as f:
+            with open(FileStorage.__file_path, 'r', encoding='utf-8') as f:
                 reloadstor = json.load(f)
-                self.new(reloadstor)
+                for k, v in reloadstor.items():
+                    self.__objects[k] = BaseModel(**v)
         except FileNotFoundError:
-            pass
+            return

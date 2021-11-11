@@ -12,4 +12,3 @@ if __name__ == "__main__":
     print("\n\n")
 
     print("{}".format(i.__str__()))
-    
