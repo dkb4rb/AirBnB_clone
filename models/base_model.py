@@ -26,17 +26,22 @@ class BaseModel:
                     self.__dict__[v] = datetime.strptime(f, date)
                 else:
                     self.__dict__[v] = f
+        else:
+            models.storage.new(self)
 
     def save(self):
         """ Update the current datetime"""
         self.updated_at = datetime.today()
+        models.storage.save()
 
     def to_dict(self):
         """ Return the dictionary of the BaseModel"""
         dictionary = self.__dict__
-        dictionary["created_at"] = self.created_at.isoformat()
-        dictionary["updated_at"] = self.updated_at.isoformat()
-        dictionary["__class__"] = self.__class__.__name__
+        dictionary["__class__"] = BaseModel.__name__
+        if type(dictionary["created_at"]) is not str:
+            dictionary["created_at"] = self.created_at.isoformat()
+        if type(dictionary["updated_at"]) is not str:
+            dictionary["updated_at"] = self.updated_at.isoformat()
         return dictionary
 
     def __str__(self):
