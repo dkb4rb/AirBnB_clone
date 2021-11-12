@@ -34,12 +34,19 @@ class HBNBCommand(cmd.Cmd):
             create new instance from BaseModel
             and print his id
         """
-        tokenedcmd = tokenize(argv)
+        cmdtk = tokenize(argv)
+        count = 0
         first_name = BaseModel()
         first_name.name = argv
         storage.save()
         print(first_name.id)
-        print(argv)
+        for i in cmdtk:
+            count += 1
+        if count == 0:
+            print("** class name missing **")
+        else:
+            print(cmdtk[0])
+        __class__.__name__
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
