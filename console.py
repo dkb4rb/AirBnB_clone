@@ -111,6 +111,13 @@ class HBNBCommand(cmd.Cmd):
             print("]")
         else:
             print("** class doesn't exist **")
+    
+    def do_update(self, argv):
+        """ Update an instance based on the class
+            recived in the argv
+        """
+        command = tokenize(argv)
+        if len(command) == 0:
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
