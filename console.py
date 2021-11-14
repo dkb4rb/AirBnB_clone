@@ -3,14 +3,19 @@
 contains the entry point of the command interpreter
 """
 import cmd
+from os import name
 from models.base_model import BaseModel
 from models import storage
 from models.engine.file_storage import FileStorage
 from shlex import split
 
+
+dictionary_function = {"BaseModel": BaseModel}
+
 def tokenize(text):
     tokened = split(text)
     return(tokened)
+
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -20,7 +25,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, args):
         """Exit this application"""
-        raise SystemExit
+        return True
 
     def do_EOF(self, args):
         """Called when <Ctrl>-D is pressed"""
@@ -29,24 +34,45 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """" shouldn’t execute anything """
         return cmd.Cmd.emptyline(self)
+
     def do_create(self, argv):
         """
             create new instance from BaseModel
             and print his id
         """
         cmdtk = tokenize(argv)
-        count = 0
-        first_name = BaseModel()
-        first_name.name = argv
-        storage.save()
-        print(first_name.id)
-        for i in cmdtk:
-            count += 1
-        if count == 0:
+        """ Condition to evaluate if cmdtk or arguments is NULL"""
+        if len(cmdtk[0]) == 0:
             print("** class name missing **")
+        """ Condition to evaluate if argv[0] is equal to __class dict declare"""
+        if cmdtk[0] in dictionary_function:
+            first_instance = dictionary_function[cmdtk[0]]()
         else:
-            print(cmdtk[0])
-        __class__.__name__
+            print("** class doesn't exist **")
+            return False
+        print(first_instance.id)
+        first_instance.name = "Juan"
+        storage.save()
+
+    def do_show(self, argv):
+        """ Print an instance in str Representation"""
+
+        command = tokenize(argv)
+        if len(command) == 0:
+            print("** class name missing **")
+            return False
+        if command[0] in dictionary_function:
+            if len(command) > 1:
+                key = command[0] + "." + command[1]
+                if key in storage.all():
+                    print(storage.all()[key])
+                else:
+                    print("** no instance found **")
+            else:
+                print("** instance id missing **")
+        else:
+            print("** class doesn't exist **")   
+   
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
