@@ -9,7 +9,7 @@ class test_Requirements_User(unittest.TestCase):
 
     def test_shebang_user(self):
         shebang = "#!/usr/bin/python3"
-        f = open("tests/test_base_model.py", "r")
+        f = open("models/user.py", "r")
         for linea in f:
             if shebang == linea:
                 print(shebang)
@@ -40,13 +40,13 @@ class TestUser(unittest.TestCase):
         item = User()
         self.assertTrue(hasattr(item, "password"))
  
-    def first_name(self):
-        """Test if it has password attribute"""
+    def test_first_name(self):
+        """Test if it has first name attribute"""
         item = User()
         self.assertTrue(hasattr(item, "first_name"))
 
-    def last_name(self):
-        """Test if it has password attribute"""
+    def test_last_name(self):
+        """Test if it has last name attribute"""
         item = User()
         self.assertTrue(hasattr(item, "last_name"))
  
