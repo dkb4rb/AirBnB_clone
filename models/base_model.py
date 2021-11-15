@@ -18,26 +18,26 @@ class BaseModel:
 
         date = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
-        self.created_at = datetime.today()
+        self.created_at = datetime.now()
         self.updated_at = datetime.now()
         if len(kwargs) != 0:
             for v, f in kwargs.items():
                 if v == "created_at" or v == "update_at":
-                    self.__dict__[v] = datetime.strptime(f, date)
-                else:
-                    self.__dict__[v] = f
+                    setattr(self, v, datetime.fromisoformat(f))
+                elif v != "__class__":
+                    setattr(self, v, f)
         else:
             models.storage.new(self)
 
     def save(self):
         """ Update the current datetime"""
-        self.updated_at = datetime.today()
+        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
         """ Return the dictionary of the BaseModel"""
-        dictionary = self.__dict__
-        dictionary["__class__"] = BaseModel.__name__
+        dictionary = self.__dict__.copy()
+        dictionary["__class__"] = self.__class__.__name__
         if type(dictionary["created_at"]) is not str:
             dictionary["created_at"] = self.created_at.isoformat()
         if type(dictionary["updated_at"]) is not str:
