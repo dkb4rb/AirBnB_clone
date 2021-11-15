@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Test for base model
+"""
 import unittest
 import os
 from datetime import datetime
