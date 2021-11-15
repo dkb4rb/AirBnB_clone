@@ -99,6 +99,26 @@ class Test_Instanciate_and_pass_arguments(unittest.TestCase):
         b1 = BaseModel(id=10)
         b2 = BaseModel(id=100)
         self.assertIsNotNone(b1.id, b2.id)
+    
+    def test_save(self):
+        """
+        Check if the class save the update the date
+        """
+        my_BaseModel = BaseModel()
+        my_1BaseModel = my_BaseModel.updated_at
+        my_BaseModel.save()
+        my_2BaseModel = my_BaseModel.updated_at
+        self.assertNotEqual(my_1BaseModel, my_2BaseModel)
+
+    def test_to_dict(self):
+        """
+        Test to dict
+        """
+        my_BaseModel = BaseModel()
+        my_dict = my_BaseModel.to_dict()
+        self.assertIs(type(my_dict), dict)
+        self.assertIs(type(my_dict['created_at']), str)
+        self.assertIs(type(my_dict['updated_at']), str)
 
 
 class test_Requirements(unittest.TestCase):
