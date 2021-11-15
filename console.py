@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """" shouldn’t execute anything """
-        return cmd.Cmd.emptyline(self)
+        pass
 
     def do_create(self, argv):
         """
