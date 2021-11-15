@@ -2,9 +2,11 @@
 """
 Test for user
 """
-import unittest
+import models
+from models import user
 from models.base_model import BaseModel
 from models.user import User
+import unittest
 
 
 class test_Requirements_User(unittest.TestCase):
