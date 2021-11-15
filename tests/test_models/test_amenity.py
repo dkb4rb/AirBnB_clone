@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Test for amenity
+"""
 import unittest
 from models.base_model import BaseModel
 from models.amenity import Amenity
