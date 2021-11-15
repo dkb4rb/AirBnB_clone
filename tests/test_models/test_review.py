@@ -2,8 +2,11 @@
 """
 Test for review
 """
+import os
+import models
 import unittest
-from models.base_model import BaseModel
+from datetime import datetime
+from time import sleep
 from models.review import Review
 
 class TestReview_instantiation(unittest.TestCase):
