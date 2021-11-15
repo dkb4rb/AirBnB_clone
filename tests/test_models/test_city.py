@@ -10,7 +10,7 @@ from time import sleep
 from models.city import City
 
 
-class test_Requirements_City(unittest.TestCase):
+class Test_Requirements_City(unittest.TestCase):
     """ Unittest to Holberton Requirements """
 
     def test_shebang_city(self):
