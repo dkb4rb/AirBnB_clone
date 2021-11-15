@@ -8,6 +8,7 @@ import unittest
 from datetime import datetime
 from time import sleep
 from models.user import User
+from models.base_model import BaseModel
 
 
 class TestUser(unittest.TestCase):
@@ -37,6 +38,14 @@ class TestUser(unittest.TestCase):
         """Test if it has last name attribute"""
         item = User()
         self.assertTrue(hasattr(item, "last_name"))
+    
+    def test_doctmodule(self):
+        """Module is documente"""
+        self.assertIsNotNone(User.__doc__)
+
+
+class Test_Requirements_State(unittest.TestCase):
+    """ Unittest to Holberton Requirements """
 
     def test_shebang_user(self):
         shebang = "#!/usr/bin/python3"
@@ -45,10 +54,6 @@ class TestUser(unittest.TestCase):
             if shebang == linea:
                 print(shebang)
         f.close()
-    
-    def test_doctmodule(self):
-        """Module is documente"""
-        self.assertIsNotNone(User.__doc__)
 
 if __name__ == '__main__':
     unittest.main()

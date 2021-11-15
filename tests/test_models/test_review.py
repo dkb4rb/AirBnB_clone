@@ -8,6 +8,7 @@ import unittest
 from datetime import datetime
 from time import sleep
 from models.review import Review
+from models.base_model import BaseModel
 
 class TestReview_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Review class."""
@@ -91,7 +92,7 @@ class TestReview_instantiation(unittest.TestCase):
             Review(id=None, created_at=None, updated_at=None)
 
 
-class test_Requirements_Review(unittest.TestCase):
+class Test_Requirements_Review(unittest.TestCase):
     """ Unittest to Holberton Requirements """
 
     def test_shebang_review(self):

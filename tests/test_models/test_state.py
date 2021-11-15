@@ -8,7 +8,7 @@ import unittest
 from datetime import datetime
 from time import sleep
 from models.state import State
-
+from models.base_model import BaseModel
 
 class TestState_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the State class."""
@@ -182,7 +182,7 @@ class TestState_to_dict(unittest.TestCase):
 
 
 
-class test_Requirements_State(unittest.TestCase):
+class Test_Requirements_State(unittest.TestCase):
     """ Unittest to Holberton Requirements """
 
     def test_shebang_state(self):

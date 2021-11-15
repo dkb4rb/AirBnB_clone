@@ -8,6 +8,7 @@ import unittest
 from datetime import datetime
 from time import sleep
 from models.city import City
+from models.base_model import BaseModel
 
 
 class Test_Requirements_City(unittest.TestCase):
@@ -48,8 +49,8 @@ class TestCity(unittest.TestCase):
         item = City()
         self.assertTrue(hasattr(item, "name"))
     
-    class TestCity_instantiation(unittest.TestCase):
-    """Unittests for testing instantiation of the City class."""
+class TestCity_instantiation(unittest.TestCase):
+    """ Unittests for testing instantiation of the City class."""
 
     def test_no_args_instantiates(self):
         self.assertEqual(City, type(City()))

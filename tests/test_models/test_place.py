@@ -8,9 +8,10 @@ import unittest
 from datetime import datetime
 from time import sleep
 from models.place import Place
+from models.base_model import BaseModel
 
 
-class test_Requirements_Place(unittest.TestCase):
+class Test_Requirements_Place(unittest.TestCase):
     """ Unittest to Holberton Requirements """
 
     def test_shebang_place(self):
@@ -92,7 +93,7 @@ class TestPlace(unittest.TestCase):
         item = Place()
         self.assertTrue(hasattr(item, "amenity_ids"))
        
-    class TestPlace_instantiation(unittest.TestCase):
+class TestPlace_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Place class."""
 
     def test_no_args_instantiates(self):
