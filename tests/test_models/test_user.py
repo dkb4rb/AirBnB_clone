@@ -1,73 +1,47 @@
 #!/usr/bin/python3
 """
-Unittest for Users
+Test for user
 """
-import models
-from models import user
 from models.base_model import BaseModel
 from models.user import User
 import unittest
-import os
-import pycodestyle
 
 
 class TestUser(unittest.TestCase):
-    """
-    Starting Test
-    """
-    @classmethod
-    def setUpClass(cls):
-        """
-        Test
-        """
-        print('\n****************** Init Testing ******************\n')
-        cls.my_user = User()
-        cls.my_user.first_name = "Betty"
-        cls.my_user.last_name = "Bar"
-        cls.my_user.email = "airbnb@mail.com"
-        cls.my_user.password = "root"
+    """Testing class user from models"""
 
-    def test_is_an_instance(self):
-        """
-        Instantiating Users
-        """
-        my_user = User()
-        self.assertIsInstance(my_user, User)
+    def test_insistance_user(self):
+        """Test if the data entered is user type"""
+        item = User()
+        self.assertTrue(isinstance(item, BaseModel))
 
-    def test_type_instance(self):
-        """
-        type instance
-        """
-        self.assertIs(type(self.my_user.first_name), str)
-        self.assertIs(type(self.my_user.last_name), str)
-        self.assertIs(type(self.my_user.email), str)
-        self.assertIs(type(self.my_user.password), str)
+    def test_email(self):
+        """Test if it has email attribute"""
+        item = User()
+        self.assertTrue(hasattr(item, "email"))
 
-    def test_attributes(self):
-        """
-        Test Attributes
-        """
-        self.assertTrue(hasattr(User, "__init__"))
-        self.assertTrue(hasattr(User, "__str__"))
-        self.assertTrue(User, "first_name")
-        self.assertTrue(User, "last_name")
-        self.assertTrue(User, "email")
-        self.assertTrue(User, "password")
+    def test_password(self):
+        """Test if it has password attribute"""
+        item = User()
+        self.assertTrue(hasattr(item, "password"))
 
-    def test_pycodestyle(self):
-        """
-        Test style PEP8.
-        """
-        pep8style = pycodestyle.StyleGuide(quiet=True)
-        result = pep8style.check_files(['models/user.py'])
-        self.assertEqual(result.total_errors, 0, "code style errors")
+    def test_first_name(self):
+        """Test if it has first name attribute"""
+        item = User()
+        self.assertTrue(hasattr(item, "first_name"))
 
-    @classmethod
-    def tearDownClass(cls):
-        """
-        Test
-        """
-        print('\n****************** Finish Testing ******************\n')
+    def test_last_name(self):
+        """Test if it has last name attribute"""
+        item = User()
+        self.assertTrue(hasattr(item, "last_name"))
+
+    def test_shebang_user(self):
+        shebang = "#!/usr/bin/python3"
+        f = open("models/user.py", "r")
+        for linea in f:
+            if shebang == linea:
+                print(shebang)
+        f.close() 
 
 
 if __name__ == '__main__':
