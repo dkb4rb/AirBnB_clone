@@ -13,7 +13,7 @@ class TestUser(unittest.TestCase):
     def test_insistance_user(self):
         """Test if the data entered is user type"""
         item = User()
-        self.assertTrue(isinstance(item, BaseModel))
+        self.assertIsInstance(item, User)
 
     def test_email(self):
         """Test if it has email attribute"""
@@ -41,8 +41,11 @@ class TestUser(unittest.TestCase):
         for linea in f:
             if shebang == linea:
                 print(shebang)
-        f.close() 
-
+        f.close()
+    
+    def test_doctmodule(self):
+        """Module is documente"""
+        self.assertIsNotNone(User.__doc__)
 
 if __name__ == '__main__':
     unittest.main()
