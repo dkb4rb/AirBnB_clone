@@ -2,6 +2,7 @@
 """
 Documentation for module state class
 """
+
 from models.base_model import BaseModel
 
 
