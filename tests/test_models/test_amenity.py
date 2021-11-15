@@ -10,7 +10,7 @@ from time import sleep
 from models.amenity import Amenity
 
 
-class test_Requirements_Amenity(unittest.TestCase):
+class Test_Requirements_Amenity(unittest.TestCase):
     """ Unittest to Holberton Requirements """
 
     def test_shebang_amenity(self):
