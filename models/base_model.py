@@ -16,17 +16,16 @@ class BaseModel:
         """ Instantiation BaseModel
         """
 
-        date = "%Y-%m-%dT%H:%M:%S.%f"
-        self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
         if len(kwargs) != 0:
             for v, f in kwargs.items():
-                if v == "created_at" or v == "update_at":
+                if v == "created_at" or v == "updated_at":
                     setattr(self, v, datetime.fromisoformat(f))
                 elif v != "__class__":
                     setattr(self, v, f)
         else:
+            self.id = str(uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
             models.storage.new(self)
 
     def save(self):

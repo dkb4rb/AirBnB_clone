@@ -110,16 +110,12 @@ class HBNBCommand(cmd.Cmd):
         if len(command) == 0:
             for v in storage.all().values():
                 list_objects.append(str(v))
-            print("[\"", end="")
-            print(", ".join(list_objects), end="")
-            print("\"]")
+            print(list_objects)
         elif command[0] in dictionary_function:
             for k in storage.all():
                 if command[0] in k:
                     list_objects.append(str(storage.all()[k]))
-            print("[\"", end="")
-            print(", ".join(list_objects), end="")
-            print("\"]")
+                print(list_objects)
         else:
             print("** class doesn't exist **")
 
