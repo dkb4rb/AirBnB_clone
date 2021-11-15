@@ -17,9 +17,11 @@ from models.amenity import Amenity
 from shlex import split
 
 
-dictionary_function = {"BaseModel": BaseModel, "Amenity": Amenity, 
-                        "City":City, "Place":Place, "Review":Review, "State":State,
-                        "User":User}
+dictionary_function = {"BaseModel": BaseModel, "Amenity": Amenity,
+                       "City": City, "Place": Place, "Review":
+                       Review, "State": State,
+                       "User": User}
+
 
 def tokenize(text):
     tokened = split(text)
@@ -53,7 +55,7 @@ class HBNBCommand(cmd.Cmd):
         """ Condition to evaluate if cmdtk or arguments is NULL"""
         if len(cmdtk[0]) == 0:
             print("** class name missing **")
-        """ Condition to evaluate if argv[0] is equal to __class dict declare"""
+        """ evaluate if argv[0] is equal to __class dict declare"""
         if cmdtk[0] in dictionary_function:
             first_instance = dictionary_function[cmdtk[0]]()
         else:
@@ -80,9 +82,9 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
-    
+
     def do_destroy(self, argv):
-        """ Delete an instance based in the class""" 
+        """ Delete an instance based in the class"""
         command = tokenize(argv)
 
         if len(command) == 0:
@@ -99,7 +101,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
         else:
             print("** class doesn't exist **")
-    
+
     def do_all(self, argv):
         """ Printing all instances in to str Representation"""
         command = tokenize(argv)
@@ -119,7 +121,7 @@ class HBNBCommand(cmd.Cmd):
             print("\"]")
         else:
             print("** class doesn't exist **")
-    
+
     def do_update(self, argv):
         """ Update an instance based on the class
             recived in the argv
@@ -144,10 +146,10 @@ class HBNBCommand(cmd.Cmd):
         if len(command) == 3:
             try:
                 type(eval(command[2])) != dict
-            
+
             except NameError:
-                    print("** value missing **")
-                    return False
+                print("** value missing **")
+                return False
         if len(command) == 4:
             objects = dict_object[f"{command[0]}.{command[1]}"]
             if command[2] in objects.__class__.__dict__.keys():
@@ -155,16 +157,18 @@ class HBNBCommand(cmd.Cmd):
                 objects.__dict__[command[2]] = value_type(command[3])
             else:
                 objects.__dict__[command[2]] = command[3]
-        elif type(eval(command[2])) == dict: 
+        elif type(eval(command[2])) == dict:
             objects = dict_object[f"{command[0]}.{command[1]}"]
             for k, i in eval(command[2].items()):
                 if (k in objects.__class__.__dict__.keys() and
-                    type(objects.__class__.__dict__[k]) in {str, int, float}):
+                        type(objects.__class__.__dict__[k]) in
+                        {str, int, float}):
                     value_type = type(objects.__class__.__dict__[k])
                     objects.__dict__[k] = value_type(i)
                 else:
                     objects.__dict__[k] = i
         storage.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
