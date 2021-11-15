@@ -8,6 +8,7 @@ import unittest
 from datetime import datetime
 from time import sleep
 from models.amenity import Amenity
+from models.base_model import BaseModel
 
 
 class Test_Requirements_Amenity(unittest.TestCase):
@@ -42,7 +43,7 @@ class TestAmenity(unittest.TestCase):
         item = Amenity()
         self.assertTrue(hasattr(item, "name"))
     
-    class TestAmenity_save(unittest.TestCase):
+class TestAmenity_save(unittest.TestCase):
     """Unittests for testing save method of the Amenity class."""
 
     @classmethod
