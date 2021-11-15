@@ -44,7 +44,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """" shouldn’t execute anything """
-        return cmd.Cmd.emptyline(self)
+        pass
 
     def do_create(self, argv):
         """
@@ -109,9 +109,9 @@ class HBNBCommand(cmd.Cmd):
         if len(command) == 0:
             for v in storage.all().values():
                 list_objects.append(str(v))
-            print("[", end="")
+            print("[\"", end="")
             print(", ".join(list_objects), end="")
-            print("]")
+            print("\"]")
         elif command[0] in dictionary_function:
             for k in storage.all():
                 if command[0] in k:
