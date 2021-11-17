@@ -5,6 +5,7 @@ Test for Console
 import unittest
 import models
 import models.engine
+import console
 
 
 class Test_Requirements_Amenity(unittest.TestCase):
@@ -20,6 +21,10 @@ class Test_Requirements_Amenity(unittest.TestCase):
 
 class Test_Console():
     """Test general about console"""
+    
+    def test_setUp(self):
+        self.command = console.HBNBCommand()
+
     def test_quit(self):
         pass
 
