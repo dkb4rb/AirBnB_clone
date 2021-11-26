@@ -2,6 +2,11 @@
 *====== Places Class Styles =========
 */
 
+.places {
+	position: relative;
+	left: 35px;
+}
+
 .article {
 	align-items: center;
 }
@@ -9,12 +14,11 @@
 .places article {
     border: 1px solid #ff5a5f;
     border-radius: 4px;
-    display: inline-block;
-    margin: 7px;
+    display: inline-table;
+    margin: 20px;
     height: 71px;
-    width: 429px;
+    width: 390px;
     margin-left: 10px;
-    align-items: left;
 	padding: 20px;
 }
 
@@ -32,6 +36,9 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	position: relative;
+	top: -9px;
+	left: 25px;
 	
 }
 
