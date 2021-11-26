@@ -38,12 +38,4 @@
 .center-box {
 	position: relative;
 	right: -250px;
-
-}
-
-@media screen and (max-width: 980px){
-	.center-box {
-		right: 0px;
-	}
-
 }
