@@ -4,7 +4,7 @@
 
 .places {
 	position: relative;
-	left: 35px;
+	left: 25px;
 }
 
 .article {
@@ -54,27 +54,39 @@
 	}
 
 }
+
+@media screen and (max-width: 360px){
+	.center-box{
+		right: -250px;
+	}
+	
+}
+
 /*
 *====== Places Class Styles to Task 8 =========
 */
 .header_places {
-	display: block ruby;
+	display: flex;
 	text-align: center;
+	position: relative;
+	justify-content: space-around;
+	left: 52px;
 }
+
+
 
 .places .price_by_night {
 	position: relative;
-	left: 50px;
-	
+	left: -10px;	
 	align-items: center;
 	border: 4px solid #ff5a5f;
 	border-radius: 50%;
 	color: #ff5a5f;
-	display: flex;
+	display: grid;
 	font-size: 30px;
-	height: 60px;
+	height: 80px;
 	justify-content: center;
-	min-width: 60px;
+	min-width: 80px;
 }
 
 .information {
@@ -88,6 +100,7 @@
 
 .information ul li {
     list-style: none;
+	font-size: 13.3px;
 }
 
 .information ul {
@@ -100,7 +113,7 @@
 	width: 69px;
 	position: relative;
 	left: -10px;
-	
+	jus
 
 }
 
